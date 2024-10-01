@@ -19,28 +19,34 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-using TradeWindsDateTime;
+using TradeWindsDateTime.Interfaces;
 
-namespace UnitTests
+namespace TradeWindsDateTime;
+
+/// <summary>
+/// Extensions to DateTime.
+/// </summary>
+public static class DateTimeExtensions
 {
-	public class TestDateTimeConvertor
-	{
-		[Fact]
-		public void TestAll()
-		{
+  /// <summary>
+  /// Returns the DateDiff between two dates. Does an Abs(diff) so the result is always positive.
+  /// </summary>
+  /// <param name="date1">This DateTime.</param>
+  /// <param name="date2">The comparison DateTime</param>
+  /// <returns>The difference.</returns>
+  public static IDateTimeSpan DateDiff(this DateTime date1, DateTime date2)
+  {
+    return DateTimeSpan.CalculateDifference(date1, date2);
+  }
 
-			var convertor = DateTimeConvertor.Create("Mountain Standard Time");
-
-			var dateTime = new DateTime(1955, 9, 26, 1, 2, 3);
-			var dateTimeUtc = convertor.ConvertToUtc(dateTime);
-			Assert.Equal(dateTime.Date, dateTimeUtc.Date);
-			// the hour is off by 6 or 7 because of the timezone (7 is DST)
-			Assert.True(dateTimeUtc.Hour == dateTime.Hour + 6 || dateTimeUtc.Hour == dateTime.Hour + 7);
-			Assert.Equal(dateTime.Minute, dateTimeUtc.Minute);
-			Assert.Equal(dateTime.Second, dateTimeUtc.Second);
-
-			var dateTimeLocal = convertor.ConvertFromUtc(dateTimeUtc);
-			Assert.Equal(dateTime, dateTimeLocal);
-		}
-	}
+  /// <summary>
+  /// Round to the nearest minute.
+  /// </summary>
+  /// <param name="dt">The DateTime to round.</param>
+  /// <returns>The rounded value.</returns>
+  public static DateTime RoundToMinute(this DateTime dt)
+  {
+    var truncated = new DateTime(dt.Year, dt.Month, dt.Day, dt.Hour, dt.Minute, 0, dt.Kind);
+    return dt.Second >= 30 ? truncated.AddMinutes(1) : truncated;
+  }
 }

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0.1</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>DateTimeZone is DateTime+TimeZone</Title>
+    <Authors>DavidThielen</Authors>
+    <Company>Trade Winds Studios</Company>
+    <Description>Combines DateTime and TimeZone in a single class. Plus additional DateTime and TimeZone helper classes.</Description>
+    <Copyright>MIT</Copyright>
+    <PackageProjectUrl>https://github.com/DavidThielen/TradeWindsDateTime</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/DavidThielen/TradeWindsDateTime</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>DateTime; TimeZone</PackageTags>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
