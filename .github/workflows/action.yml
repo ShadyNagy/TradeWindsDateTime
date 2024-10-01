@@ -1,0 +1,32 @@
+﻿# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
+name: Build and deploy ASP.Net Core app to Azure Web App - louishowe
+
+on:
+  push:
+    branches:
+      - master
+      - feature/* 
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '8.x'
+          include-prerelease: true
+
+      - name: Build
+        run: dotnet build .\TradeWindsDateTime\TradeWindsDateTime.csproj --configuration Release
+
+      - name: Unit Tests
+        run: dotnet test .\UnitTests\UnitTests.csproj
+  
