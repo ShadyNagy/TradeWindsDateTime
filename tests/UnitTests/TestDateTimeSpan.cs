@@ -34,7 +34,7 @@ public class TestDateTimeSpan
 
     var dateTimeMarch = new DateTime(2024, 3, 15);
     var dateTimeSept = new DateTime(2024, 9, 15);
-    var diff = DateTimeSpan.Diff(dateTimeMarch, dateTimeSept);
+    IDateTimeSpan diff = DateTimeSpan.CalculateDifference(dateTimeMarch, dateTimeSept);
     Assert.Equal(0, diff.Years);
     Assert.Equal(6, diff.Months);
     Assert.Equal(0, diff.Days);
@@ -43,11 +43,11 @@ public class TestDateTimeSpan
     Assert.Equal(0, diff.Seconds);
     Assert.Equal(0, diff.WeeksInMonth);
     Assert.Equal(0, diff.DaysRemainderWeeks);
-    Assert.Equal("6 months, 0 days", diff.DurationIn2());
+    Assert.Equal("6 months, 0 days", diff.GetDurationSummary());
 
     var dateTimeMarch2 = new DateTime(2024, 3, 10, 14, 30, 45);
     var dateTimeSept2 = new DateTime(2023, 9, 15, 12, 25, 12);
-    var diff2 = DateTimeSpan.Diff(dateTimeMarch2, dateTimeSept2);
+    IDateTimeSpan diff2 = DateTimeSpan.CalculateDifference(dateTimeMarch2, dateTimeSept2);
     Assert.Equal(0, diff2.Years);
     Assert.Equal(5, diff2.Months);
     Assert.Equal(24, diff2.Days);
@@ -56,21 +56,21 @@ public class TestDateTimeSpan
     Assert.Equal(33, diff2.Seconds);
     Assert.Equal(3, diff2.WeeksInMonth);
     Assert.Equal(3, diff2.DaysRemainderWeeks);
-    Assert.Equal("5 months, 3 weeks", diff2.DurationIn2());
+    Assert.Equal("5 months, 3 weeks", diff2.GetDurationSummary());
 
     var dateTimeMarch3 = new DateTime(2024, 3, 10, 14, 30, 45);
     var dateTimeSept3 = new DateTime(2021, 9, 15, 12, 25, 12);
-    var diff3 = DateTimeSpan.Diff(dateTimeMarch3, dateTimeSept3);
+    IDateTimeSpan diff3 = DateTimeSpan.CalculateDifference(dateTimeMarch3, dateTimeSept3);
     Assert.Equal(2, diff3.Years);
     Assert.Equal(5, diff3.Months);
     Assert.Equal(24, diff3.Days);
     Assert.Equal(3, diff3.WeeksInMonth);
     Assert.Equal(3, diff3.DaysRemainderWeeks);
-    Assert.Equal("2 years, 5 months", diff3.DurationIn2());
+    Assert.Equal("2 years, 5 months", diff3.GetDurationSummary());
 
     var dateTimeMarch4 = new DateTime(2024, 3, 10, 14, 30, 45);
     var dateTimeSept4 = new DateTime(2024, 3, 10, 12, 35, 12);
-    var diff4 = DateTimeSpan.Diff(dateTimeMarch4, dateTimeSept4);
+    IDateTimeSpan diff4 = DateTimeSpan.CalculateDifference(dateTimeMarch4, dateTimeSept4);
     Assert.Equal(0, diff4.Years);
     Assert.Equal(0, diff4.Months);
     Assert.Equal(0, diff4.Days);
@@ -79,6 +79,6 @@ public class TestDateTimeSpan
     Assert.Equal(33, diff4.Seconds);
     Assert.Equal(0, diff4.WeeksInMonth);
     Assert.Equal(0, diff4.DaysRemainderWeeks);
-    Assert.Equal("1 hour, 55 minutes", diff4.DurationIn2());
+    Assert.Equal("1 hour, 55 minutes", diff4.GetDurationSummary());
   }
 }

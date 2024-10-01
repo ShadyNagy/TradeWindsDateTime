@@ -32,9 +32,9 @@ public static class DateTimeExtensions
   /// <param name="date1">This DateTime.</param>
   /// <param name="date2">The comparison DateTime</param>
   /// <returns>The difference.</returns>
-  public static DateTimeSpan DateDiff(this DateTime date1, DateTime date2)
+  public static IDateTimeSpan DateDiff(this DateTime date1, DateTime date2)
   {
-    return DateTimeSpan.Diff(date1, date2);
+    return DateTimeSpan.CalculateDifference(date1, date2);
   }
 
   /// <summary>
