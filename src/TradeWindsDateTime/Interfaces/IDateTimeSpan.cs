@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TradeWindsDateTime;
+namespace TradeWindsDateTime.Interfaces;
 
 public interface IDateTimeSpan
 {

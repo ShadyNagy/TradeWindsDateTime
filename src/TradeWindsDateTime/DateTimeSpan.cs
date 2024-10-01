@@ -1,4 +1,6 @@
-﻿namespace TradeWindsDateTime;
+﻿using TradeWindsDateTime.Interfaces;
+
+namespace TradeWindsDateTime;
 
 public class DateTimeSpan : IDateTimeSpan
 {

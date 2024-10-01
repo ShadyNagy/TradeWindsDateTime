@@ -20,6 +20,7 @@
 // SOFTWARE.
 
 using TradeWindsDateTime;
+using TradeWindsDateTime.Interfaces;
 
 namespace UnitTests;
 
