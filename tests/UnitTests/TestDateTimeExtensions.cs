@@ -21,26 +21,20 @@
 
 using TradeWindsDateTime;
 
-namespace UnitTests
+namespace UnitTests;
+
+public class TestDateTimeExtensions
 {
-	public class TestDateTimeConvertor
-	{
-		[Fact]
-		public void TestAll()
-		{
+  [Fact]
+  public void TestAll()
+  {
 
-			var convertor = DateTimeConvertor.Create("Mountain Standard Time");
+    var dateTime = new DateTime(1955, 9, 26, 1, 2, 29);
+    var dateTimeRound = dateTime.RoundToMinute();
+    Assert.Equal(new DateTime(1955, 9, 26, 1, 2, 0), dateTimeRound);
 
-			var dateTime = new DateTime(1955, 9, 26, 1, 2, 3);
-			var dateTimeUtc = convertor.ConvertToUtc(dateTime);
-			Assert.Equal(dateTime.Date, dateTimeUtc.Date);
-			// the hour is off by 6 or 7 because of the timezone (7 is DST)
-			Assert.True(dateTimeUtc.Hour == dateTime.Hour + 6 || dateTimeUtc.Hour == dateTime.Hour + 7);
-			Assert.Equal(dateTime.Minute, dateTimeUtc.Minute);
-			Assert.Equal(dateTime.Second, dateTimeUtc.Second);
-
-			var dateTimeLocal = convertor.ConvertFromUtc(dateTimeUtc);
-			Assert.Equal(dateTime, dateTimeLocal);
-		}
-	}
+    var dateTime2 = new DateTime(1955, 9, 26, 1, 2, 31);
+    var dateTimeRound2 = dateTime2.RoundToMinute();
+    Assert.Equal(new DateTime(1955, 9, 26, 1, 3, 0), dateTimeRound2);
+  }
 }

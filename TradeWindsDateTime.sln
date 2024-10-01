@@ -3,9 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35209.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeWindsDateTime", "TradeWindsDateTime\TradeWindsDateTime.csproj", "{B5F4F1EF-3C33-48DF-A627-426A9E7D578F}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2AECF7D6-F292-4BBC-98AC-E16CCFD3A0BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{423CAC61-7AED-4A58-AD33-DA0A4E997C36}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{45088945-BADD-4BD7-991A-2A12D09BC3D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B697FED8-0C37-4A74-A1E3-ECFA4D4FF7AE}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		global.json = global.json
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeWindsDateTime", "src\TradeWindsDateTime\TradeWindsDateTime.csproj", "{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests", "tests\UnitTests\UnitTests.csproj", "{A6140805-CE4E-4C7E-B202-64C3BA51EF95}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,17 +24,21 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B5F4F1EF-3C33-48DF-A627-426A9E7D578F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B5F4F1EF-3C33-48DF-A627-426A9E7D578F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B5F4F1EF-3C33-48DF-A627-426A9E7D578F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B5F4F1EF-3C33-48DF-A627-426A9E7D578F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{423CAC61-7AED-4A58-AD33-DA0A4E997C36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{423CAC61-7AED-4A58-AD33-DA0A4E997C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{423CAC61-7AED-4A58-AD33-DA0A4E997C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{423CAC61-7AED-4A58-AD33-DA0A4E997C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6140805-CE4E-4C7E-B202-64C3BA51EF95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6140805-CE4E-4C7E-B202-64C3BA51EF95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6140805-CE4E-4C7E-B202-64C3BA51EF95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6140805-CE4E-4C7E-B202-64C3BA51EF95}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9600A2AD-37DA-41EE-8DFA-4B2DEB5A4F3D} = {2AECF7D6-F292-4BBC-98AC-E16CCFD3A0BD}
+		{A6140805-CE4E-4C7E-B202-64C3BA51EF95} = {45088945-BADD-4BD7-991A-2A12D09BC3D9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6A73AC7-FBE3-4D44-B227-9B693197254E}
